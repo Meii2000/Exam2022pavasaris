@@ -28,30 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSerch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ResultsTextBox = new System.Windows.Forms.TextBox();
+            this.buttonSerch = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.HistoryTextBox = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.lstSearchResults = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtSerch
             // 
-            this.textBox1.Location = new System.Drawing.Point(79, 115);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(315, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtSerch.Location = new System.Drawing.Point(79, 115);
+            this.txtSerch.Name = "txtSerch";
+            this.txtSerch.Size = new System.Drawing.Size(315, 20);
+            this.txtSerch.TabIndex = 0;
+            this.txtSerch.TextChanged += new System.EventHandler(this.txtSerch_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(111, 34);
+            this.label1.Location = new System.Drawing.Point(88, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(237, 46);
             this.label1.TabIndex = 1;
@@ -75,21 +77,22 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "link to search result";
             // 
-            // textBox2
+            // ResultsTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(127, 164);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(544, 20);
-            this.textBox2.TabIndex = 4;
+            this.ResultsTextBox.Location = new System.Drawing.Point(127, 164);
+            this.ResultsTextBox.Name = "ResultsTextBox";
+            this.ResultsTextBox.Size = new System.Drawing.Size(544, 20);
+            this.ResultsTextBox.TabIndex = 4;
             // 
-            // button1
+            // buttonSerch
             // 
-            this.button1.Location = new System.Drawing.Point(441, 112);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonSerch.Location = new System.Drawing.Point(418, 113);
+            this.buttonSerch.Name = "buttonSerch";
+            this.buttonSerch.Size = new System.Drawing.Size(75, 23);
+            this.buttonSerch.TabIndex = 5;
+            this.buttonSerch.Text = "Search";
+            this.buttonSerch.UseVisualStyleBackColor = true;
+            this.buttonSerch.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -99,6 +102,7 @@
             this.button2.TabIndex = 6;
             this.button2.Text = "Close browser";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -108,14 +112,15 @@
             this.button3.TabIndex = 7;
             this.button3.Text = "Back";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // richTextBox1
+            // HistoryTextBox
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(127, 208);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(544, 211);
-            this.richTextBox1.TabIndex = 8;
-            this.richTextBox1.Text = "";
+            this.HistoryTextBox.Location = new System.Drawing.Point(127, 208);
+            this.HistoryTextBox.Name = "HistoryTextBox";
+            this.HistoryTextBox.Size = new System.Drawing.Size(255, 211);
+            this.HistoryTextBox.TabIndex = 8;
+            this.HistoryTextBox.Text = "";
             // 
             // label4
             // 
@@ -126,21 +131,30 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Search history";
             // 
+            // lstSearchResults
+            // 
+            this.lstSearchResults.FormattingEnabled = true;
+            this.lstSearchResults.Location = new System.Drawing.Point(443, 213);
+            this.lstSearchResults.Name = "lstSearchResults";
+            this.lstSearchResults.Size = new System.Drawing.Size(167, 134);
+            this.lstSearchResults.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(701, 513);
+            this.Controls.Add(this.lstSearchResults);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.HistoryTextBox);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.buttonSerch);
+            this.Controls.Add(this.ResultsTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtSerch);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -150,16 +164,17 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSerch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox ResultsTextBox;
+        private System.Windows.Forms.Button buttonSerch;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox HistoryTextBox;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ListBox lstSearchResults;
     }
 }
 
